@@ -36,7 +36,7 @@ import { ChannelType } from "@prisma/client";
 
 const formSchema = z.object({
   name: z.string().min(1, {
-    message: "Channel name is required.",
+    message: "Channel name is required."
   }).refine(
     name => name !== "general",
     {
@@ -47,18 +47,19 @@ const formSchema = z.object({
 });
 
 const CreateChannelModal = () => {
-  const { isOpen, onClose, type } = useModal();
+  const { isOpen, onClose, type,data } = useModal();
 
   const router = useRouter();
   const params = useParams();
 
   const isModalOpen = isOpen && type === "createChannel";
+  const { channelType } = data;
 
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      type: ChannelType || ChannelType.TEXT,
+      type: channelType || ChannelType.TEXT,
     },
   });
 
