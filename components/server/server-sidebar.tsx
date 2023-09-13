@@ -143,7 +143,7 @@ const ServerSidebar: React.FC<ServerSidebarProps> = async ({ serverId }) => {
                   key={channel.id}
                   channel={channel}
                   role={role}
-                  Server={server}
+                  server={server}
                 />
               ))}
             </div>
@@ -163,7 +163,7 @@ const ServerSidebar: React.FC<ServerSidebarProps> = async ({ serverId }) => {
                   key={channel.id}
                   channel={channel}
                   role={role}
-                  Server={server}
+                  server={server}
                 />
               ))}
             </div>
@@ -184,7 +184,7 @@ const ServerSidebar: React.FC<ServerSidebarProps> = async ({ serverId }) => {
                   key={channel.id}
                   channel={channel}
                   role={role}
-                  Server={server}
+                  server={server}
                 />
               ))}
             </div>
