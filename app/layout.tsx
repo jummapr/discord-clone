@@ -6,6 +6,7 @@ import { Open_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ModalProvider } from "@/components/providers/modal-provider";
+import { SocketProvider } from "@/components/providers/socket-provider";
 
 const OpenSans = Open_Sans({ subsets: ["latin"] });
 
@@ -22,18 +23,17 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={cn(
-          OpenSans.className,
-          "bg-white dark:bg-[#313338]"
-        )}>
+        <body className={cn(OpenSans.className, "bg-white dark:bg-[#313338]")}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
-             enableSystem={false}
+            enableSystem={false}
             storageKey="discord-theme"
           >
-            <ModalProvider />
-            {children}
+            <SocketProvider>
+              <ModalProvider />
+              {children}
+            </SocketProvider>
           </ThemeProvider>
         </body>
       </html>
